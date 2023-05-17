@@ -9,7 +9,6 @@ import Section from './components/Section';
 
 import App1Image from './assets/app1.png';
 import App2Image from './assets/app2.png';
-import AboutImg from './assets/about.jpeg';
 
 const Container = styled.div`
   display: flex;
@@ -33,39 +32,27 @@ const ContactContent = styled.div`
 `;
 
 const AboutContent = styled.div`
-  display: flex;
-  flex-direction: row;
-  gap: 32px;
+  display: block;
 
   @media (max-width: 768px) {
     flex-direction: column;
   }
 `;
 
-const AboutImage = styled.img`
-  width: 50%;
-  border-radius: 15px;  // Rounded corners
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);  // A slight shadow
-  transition: transform 0.3s ease-in-out;  // Transition for hover effect
+const AboutText = styled.p`
+  color: #030e12;
+  font-size: 22px; //Reduced size from 24px to 18px
+  line-height: 1.6;
+  font-family: 'Courier New', Courier, monospace;
+  text-shadow: 1px 1px 1px #7fe7dc;
+  transition: color 0.5s;
 
   &:hover {
-    transform: scale(1.05);  // Zoom in effect on hover
+    color: #316879; // Changes to yellow on hover
   }
 
   @media (max-width: 768px) {
-    width: 100%;
-    margin-bottom: 20px;  // Extra margin at the bottom on small screens
-  }
-`;
-
-
-const AboutText = styled.p`
-  width: 50%;
-  color: #030e12;
-  font-size: 24px;
-
-  @media (max-width: 768px) {
-    width: 100%;
+    font-size: 16px; // Further reduced for smaller screens
   }
 `;
 
@@ -92,9 +79,16 @@ const App = () => (
       title="About"
       content={
         <AboutContent>
-          <AboutImage src={AboutImg} alt="About" />
           <AboutText>
-            Here is some information about me...
+            <p>Welcome to Barely Useful Apps! We're the digital equivalent of that quirky gadget shop down the street that you can't help but love. Sure, you might not <em>need</em> that novelty mug that stirs itself, but isn't life just a bit more fun with it on your desk? That's us, but in app form.</p>
+
+            <p>Barely Useful Apps sprang to life with our first creation: a random restaurant picker designed to solve the age-old question of where to go for lunch on Fridays. What started as a fun project to help indecisive coworkers became the first step in a journey of creating micro apps that might seem barely useful at first glance (hence the name), but quickly become the quirky tools you never knew you needed.</p>
+
+            <p>Our founder, a photography enthusiast with a knack for programming, has a mission to make life a tad easier and a lot more fun with our apps. Each one is born out of real-life situations and individual needs. From a sudden "There should be an app for that!" moment to a late-night brainstorming session, our ideas come from the everyday.</p>
+
+            <p>But Barely Useful Apps is more than just about making fun applications. It’s also about learning and growing. Each app is a new challenge, a new problem to solve, and a new opportunity to learn more about the ever-evolving world of programming.</p>
+
+            <p>So, come join us on this barely useful journey. You'll find it's quite a lot of fun, and who knows, you might even find an app or two that solves those little problems you never knew you had.</p>
           </AboutText>
         </AboutContent>
       }
