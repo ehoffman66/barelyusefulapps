@@ -9,6 +9,7 @@ import Section from './components/Section';
 
 import App1Image from './assets/app1.png';
 import App2Image from './assets/app2.png';
+import App3Image from './assets/app3.png';
 
 const Container = styled.div`
   display: flex;
@@ -68,6 +69,12 @@ const apps = [
     description: 'Sticker Company to showcase the best of Baltimore',
     url: 'https://www.etsy.com/shop/CharmCityStickers',
     img: App2Image
+  },
+  {
+    title: 'Brutal Tasks',
+    description: 'Tracking and completing tasks can be brutal, we make that easier',
+    url: 'https://www.brutaltasks.com',
+    img: App3Image
   },
 ];
 
