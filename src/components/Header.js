@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect, useCallback } from 'react'; // Add useCallback here
 import styled from '@emotion/styled';
 import { Link, Events } from 'react-scroll';
 
@@ -116,12 +116,12 @@ const NavLink = styled(Link)`
 `;
 
 const Header = () => {
-    const [activeSection, setActiveSection] = useState('home');
+    const [setActiveSection] = useState('home');
     const [isOpen, setIsOpen] = useState(false);
   
-    const handleSetActive = to => {
+    const handleSetActive = useCallback((to) => {
       setActiveSection(to);
-    };
+    }, [setActiveSection]);
   
     useEffect(() => {
       Events.scrollEvent.register('begin', () => {
@@ -134,7 +134,7 @@ const Header = () => {
         Events.scrollEvent.remove('begin');
         Events.scrollEvent.remove('end');
       };
-    }, []);
+    }, [handleSetActive]);
   
     return (
       <StyledHeader>
@@ -157,7 +157,7 @@ const Header = () => {
             smooth={true}
             offset={-70}
             duration={500}
-            active={activeSection === 'about'}
+            isActive={(match, location) => location.pathname === 'about'}
           >
             About
           </NavLink>
@@ -169,7 +169,7 @@ const Header = () => {
             smooth={true}
             offset={-70}
             duration={500}
-            active={activeSection === 'projects'}
+            isActive={(match, location) => location.pathname === 'projects'}
           >
             Projects
           </NavLink>
@@ -181,7 +181,7 @@ const Header = () => {
             smooth={true}
             offset={-70}
             duration={500}
-            active={activeSection === 'contact'}
+            isActive={(match, location) => location.pathname === 'contact'}
           >
             Contact
           </NavLink>
