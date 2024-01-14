@@ -10,6 +10,7 @@ import Section from './components/Section';
 import App1Image from './assets/app1.png';
 import App2Image from './assets/app2.png';
 import App3Image from './assets/app3.png';
+import App4Image from './assets/app4.png';
 
 const Container = styled.div`
   display: flex;
@@ -76,6 +77,12 @@ const apps = [
     url: 'https://www.brutaltasks.com',
     img: App3Image
   },
+  {
+    title: 'Erik Hoffman Photography',
+    description: 'Photography Portfolio website for Erik Hoffman',
+    url: 'https://www.erikhoffmanphotos.com',
+    img: App4Image
+  },
 ];
 
 const App = () => (
@@ -107,15 +114,16 @@ const App = () => (
       id="projects"
       title="Projects"
       content={
-        <Container>
+        <Container className="row">
           {apps.map((app, index) => (
-            <AppCard
-              key={index}
-              title={app.title}
-              description={app.description}
-              url={app.url}
-              image={app.img}
-            />
+            <div key={index} className="col-lg-4"> {/* Move the key prop here */}
+              <AppCard
+                title={app.title}
+                description={app.description}
+                url={app.url}
+                image={app.img}
+              />
+            </div>
           ))}
         </Container>
       }
